@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aditya Sanap — Electrical Engineer</title>
+<meta name="description" content="Aditya Sanap, Electrical Engineer. Message on WhatsApp, follow on Instagram or save my contact.">
+<meta property="og:title" content="Aditya Sanap — Electrical Engineer">
+<meta property="og:description" content="Tap, connect and say hi.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0a;--bg-2:#16120e;--ink:#f6edd8;--ink-soft:#b3a487;
+  --line:rgba(214,175,70,.22);--rose:#e3202f;--gold:#d9b24c;--wa:#25d366;--on-accent:#ffffff;
+  --display:'Playfair Display',Georgia,'Times New Roman',serif;
+  --body:'Manrope','Helvetica Neue',Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#fbf5e6;--bg-2:#f1e7cf;--ink:#1a1208;--ink-soft:#6b5a3a;
+    --line:rgba(120,90,20,.25);--rose:#b8101d;--gold:#8a6a12;--on-accent:#fff;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#fbf5e6;--bg-2:#f1e7cf;--ink:#1a1208;--ink-soft:#6b5a3a;
+  --line:rgba(120,90,20,.25);--rose:#b8101d;--gold:#8a6a12;--on-accent:#fff;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;
+  padding-bottom:104px;transition:background .3s ease,color .3s ease;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:12px}
+.wrap{max-width:460px;margin:0 auto;padding:0 22px}
+html{background:var(--bg-2)}
+@media (min-width:900px) and (hover:hover) and (pointer:fine){
+  body{max-width:460px;margin:0 auto;min-height:100vh;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+}
+/* Desktop-only side panel: explains the page is made for phones + QR */
+.desk{display:none}
+@media (min-width:1000px) and (hover:hover) and (pointer:fine){
+  .desk{
+    display:block;position:fixed;top:50%;transform:translateY(-50%);
+    right:calc(50% + 260px);width:300px;
+  }
+  .desk h2{font-size:24px}
+  .desk p{color:var(--ink-soft);margin:0 0 18px;font-size:15px}
+  .qr{display:inline-block;padding:14px;background:#fff;border-radius:18px;line-height:0}
+  .qr img,.qr canvas{width:180px!important;height:180px!important}
+  .desk small{display:block;margin-top:12px;color:var(--ink-soft);font-size:12px;word-break:break-all}
+}
+
+/* Hero with live circuit canvas */
+.hero{position:relative;padding:28px 0 44px;overflow:hidden;touch-action:pan-y;min-height:100vh;min-height:100dvh}
+#fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero::after{
+  content:"";position:absolute;inset:auto 0 0 0;height:90px;pointer-events:none;
+  background:linear-gradient(to top,var(--bg),transparent);
+}
+.hero .wrap{position:relative;z-index:1;pointer-events:none;display:flex;flex-direction:column;min-height:calc(100vh - 72px);min-height:calc(100dvh - 72px)}
+.hero .wrap > *{pointer-events:auto}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:clamp(48px,10vh,88px);padding-bottom:0}
+.mark{
+  width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--display);font-weight:700;font-size:15px;
+  border:1px solid var(--line);background:var(--bg-2);
+}
+.top-r{display:flex;gap:10px;align-items:center}
+.status{
+  display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);
+  padding:0 14px;height:44px;border:1px solid var(--line);border-radius:999px;background:var(--bg-2);
+}
+.nfc-ico{width:20px;height:20px;color:var(--rose)}
+.nfc-ico path{opacity:.25;animation:wave 1.8s infinite}
+.nfc-ico path:nth-child(2){animation-delay:.25s}
+.nfc-ico path:nth-child(3){animation-delay:.5s}
+@keyframes wave{0%,100%{opacity:.2}40%{opacity:1}}
+.round{
+  width:44px;height:44px;border-radius:50%;display:grid;place-items:center;cursor:pointer;
+  border:1px solid var(--line);background:var(--bg-2);transition:transform .2s ease,border-color .2s ease;
+}
+.round:hover{border-color:var(--rose)}
+.round:active{transform:scale(.92) rotate(20deg)}
+.round svg{width:20px;height:20px;fill:currentColor}
+
+h1{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(30px,8.5vw,42px);line-height:1.1;letter-spacing:-.005em;margin:0 0 12px;
+}
+h1 span{display:inline-block;transition:transform .25s cubic-bezier(.3,1.6,.5,1),color .25s ease;cursor:default}
+h1 span.hot{transform:translateY(-8px) rotate(-4deg);color:var(--rose)}
+.role{font-size:clamp(16px,4.2vw,18px);color:var(--ink-soft);margin:0 0 32px;min-height:1.6em}
+.role b{color:var(--ink);font-weight:600}
+.caret{display:inline-block;width:2px;height:1em;background:var(--rose);margin-left:3px;vertical-align:-2px;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* Buttons */
+.actions{display:grid;gap:12px;grid-template-columns:1fr}
+.btn{
+  position:relative;overflow:hidden;display:flex;align-items:center;gap:14px;
+  padding:16px 18px;border-radius:18px;border:1px solid var(--line);background:var(--bg-2);
+  cursor:pointer;text-align:left;width:100%;
+  transition:transform .15s ease,border-color .2s ease;
+}
+.btn:hover,.btn.wa.primary:hover,.btn.ig:hover,.btn.call:hover{border-color:var(--rose)}
+.btn:active{transform:scale(.98)}
+.ico{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;color:#fff}
+.ico svg{width:22px;height:22px;fill:currentColor}
+.ig .ico{background:linear-gradient(135deg,#feda75 0%,#fa7e1e 28%,#d62976 58%,#962fbf 82%,#4f5bd5 100%)}
+.wa .ico{background:var(--bg-2);color:var(--wa)}
+.wa .ico svg{color:var(--wa)}
+.call .ico{background:#1a73e8;color:#fff}
+.save .ico{background:var(--gold);color:var(--bg)}
+.btn small{display:block;font-size:12px;color:var(--ink-soft);line-height:1.2}
+.btn span.t{display:block;font-weight:600;font-size:15px;line-height:1.35;word-break:break-all}
+.btn.primary{background:var(--rose);border-color:var(--rose);color:var(--on-accent)}
+.btn.primary small{color:inherit;opacity:.75}
+.btn.wa.primary{background:var(--bg-2);border-color:var(--line);color:var(--ink)}
+.btn.wa.primary .ico{background:var(--bg-2);color:var(--wa)}
+.btn.wa.primary .ico svg{color:var(--wa)}
+.ripple{
+  position:absolute;border-radius:50%;pointer-events:none;width:12px;height:12px;margin:-6px 0 0 -6px;
+  background:currentColor;opacity:.25;animation:rip .6s ease-out forwards;
+}
+@keyframes rip{to{transform:scale(28);opacity:0}}
+
+/* Sections */
+section{padding:44px 0;border-top:1px solid var(--line)}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(22px,6vw,28px);letter-spacing:0;line-height:1.1;margin:0 0 14px}
+.lead{color:var(--ink-soft);margin:0 0 22px;max-width:32em}
+
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{
+  padding:12px 18px;border-radius:999px;border:1px solid var(--line);background:var(--bg-2);
+  font-size:15px;font-weight:500;cursor:pointer;
+  transition:transform .15s ease,background .2s ease,color .2s ease,border-color .2s ease;
+}
+.chip:hover,.chip:focus-visible{background:var(--rose);border-color:var(--rose);color:var(--on-accent)}
+.chip:active{transform:scale(.95)}
+
+.tools{display:grid;gap:12px;max-width:380px}
+.btn.ok{border-color:var(--wa)}
+.btn.ok .ico{background:var(--wa)!important;color:#07301a!important;border-color:var(--wa)!important}
+
+/* Flip contact card */
+.card3d{perspective:1000px;width:100%;max-width:380px;aspect-ratio:1.6;min-height:236px;margin:0 0 20px}
+.card-in{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.3,1.2,.4,1);transform-style:preserve-3d}
+.card3d.flipped .card-in{transform:rotateY(180deg)}
+.face{
+  position:absolute;inset:0;border-radius:22px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transition:visibility 0s .3s;
+}
+.front{
+  background:radial-gradient(120% 120% at 100% 0%,color-mix(in srgb,var(--gold) 30%,transparent),transparent 58%),var(--bg-2);
+  border:1px solid var(--gold);
+}
+.back{transform:rotateY(180deg);background:var(--bg-2);border:1px solid var(--line);gap:8px}
+.card3d:not(.flipped) .back,.card3d.flipped .front{visibility:hidden}
+.flipbtn{position:absolute;inset:0;width:100%;height:100%;background:none;border:0;border-radius:22px;cursor:pointer;z-index:2}
+.c-top{display:flex;justify-content:space-between;align-items:center}
+.c-top .nfc-ico{width:26px;height:26px}
+.c-hint{font-size:12px;color:var(--ink-soft)}
+.c-name{font-family:var(--display);font-weight:700;font-size:24px;line-height:1.15}
+.c-role{color:var(--gold);font-size:14px;font-weight:600;margin-top:2px}
+.row{
+  display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;text-align:left;
+  padding:11px 14px;border-radius:14px;border:1px solid var(--line);background:var(--bg);cursor:pointer;
+  transition:border-color .2s ease,transform .15s ease;
+}
+.row:active{transform:scale(.97)}
+.row small{display:block;font-size:12px;color:var(--ink-soft);line-height:1.2}
+.row b{display:block;font-weight:600;font-size:15px;line-height:1.4}
+.row svg{flex:none;width:18px;height:18px;fill:var(--ink-soft)}
+.row.done{border-color:var(--wa)}
+.row.done b{color:var(--wa)}
+.flipback{align-self:flex-end;background:none;border:0;color:var(--ink-soft);font-size:13px;cursor:pointer;padding:2px 4px}
+
+/* Card design: gold foil, chip, circuit traces, moving sheen. Card keeps its own dark palette in both themes. */
+.card3d{
+  --bg:#0a0a0a;--bg-2:#14100b;--ink:#f6edd8;--ink-soft:#b3a487;
+  --line:rgba(214,175,70,.3);--gold:#d9b24c;--rose:#e3202f;color:var(--ink);
+}
+.front{
+  background:
+    linear-gradient(135deg,rgba(233,199,106,.16) 0%,transparent 38%),
+    repeating-linear-gradient(135deg,transparent 0 9px,rgba(217,178,76,.05) 9px 10px),
+    #0d0a07;
+  border:1px solid rgba(217,178,76,.7);
+}
+.back{
+  background:repeating-linear-gradient(135deg,transparent 0 9px,rgba(217,178,76,.05) 9px 10px),#0d0a07;
+  border:1px solid rgba(217,178,76,.45);
+  padding-top:70px;justify-content:flex-start;
+}
+.face{box-shadow:0 16px 28px rgba(0,0,0,.35)}
+.face::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;mix-blend-mode:screen;opacity:.8;
+  background:radial-gradient(circle at var(--mx,28%) var(--my,0%),rgba(255,232,160,.30),transparent 46%);
+}
+.front::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(115deg,transparent 42%,rgba(255,240,190,.22) 50%,transparent 58%) 160% 0/260% 100% no-repeat;
+  animation:foil 7s ease-in-out 1.5s infinite;
+}
+@keyframes foil{0%,55%{background-position:160% 0}100%{background-position:-60% 0}}
+.trace{position:absolute;right:0;top:30%;width:48%;color:var(--gold);opacity:.4;pointer-events:none;
+  -webkit-mask-image:linear-gradient(to left,#000 30%,transparent);mask-image:linear-gradient(to left,#000 30%,transparent)}
+.emv{
+  position:relative;width:42px;height:31px;border-radius:7px;
+  background:linear-gradient(135deg,#f4d77f 0%,#c99a35 55%,#e6c363 100%);box-shadow:inset 0 0 0 1px rgba(0,0,0,.3);
+}
+.emv::before{content:"";position:absolute;inset:7px 9px;border:1px solid rgba(0,0,0,.4);border-radius:3px;
+  background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)) center/100% 1px no-repeat}
+.emv::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(0,0,0,.4)}
+.c-top .nfc-ico{color:var(--gold)}
+.c-bot{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;position:relative}
+.c-name{
+  font-family:var(--display);font-weight:700;font-size:23px;line-height:1.15;
+  background:linear-gradient(100deg,#f8e6a8 0%,#d9b24c 48%,#b8862a 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+}
+.c-role{display:flex;align-items:center;gap:6px;color:var(--ink);font-size:13.5px;font-weight:600;margin-top:3px}
+.bolt{width:14px;height:14px;fill:var(--rose);flex:none}
+.c-hint{font-size:12px;color:var(--ink-soft);white-space:nowrap}
+.stripe{
+  position:absolute;left:0;right:0;top:20px;height:36px;
+  background:linear-gradient(180deg,#efd27d,#b88a2a);box-shadow:0 3px 0 var(--rose);
+}
+.bit{
+  position:fixed;width:7px;height:7px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--gold);
+  pointer-events:none;z-index:30;animation:bit .75s ease-out forwards;
+}
+.bit:nth-child(3n){background:var(--rose)}
+@keyframes bit{to{transform:translate(var(--dx),var(--dy)) scale(.3);opacity:0}}
+
+footer{padding:28px 0 10px;color:var(--ink-soft);font-size:13px}
+
+/* Dock */
+.dock{
+  position:fixed;left:50%;transform:translateX(-50%);
+  bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:10;display:flex;gap:6px;padding:6px;border-radius:999px;
+  background:color-mix(in srgb,var(--bg-2) 82%,transparent);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  border:1px solid var(--line);box-shadow:0 12px 40px rgba(0,0,0,.35);
+  transition:transform .35s ease,opacity .35s ease;
+}
+.dock.away{transform:translate(-50%,140%);opacity:0}
+.dock a{display:flex;align-items:center;gap:8px;height:46px;padding:0 18px;border-radius:999px;font-weight:600;font-size:14px;transition:transform .15s ease}
+.dock a:active{transform:scale(.94)}
+.dock svg{width:19px;height:19px;fill:currentColor}
+.dock .d-wa{background:var(--ink);color:var(--bg)}
+.dock .d-call{background:#1a73e8;color:#fff}
+.dock .d-ig{width:46px;padding:0;justify-content:center;background:var(--ink);color:var(--bg)}
+
+/* Toast */
+.toast{
+  position:fixed;left:50%;top:calc(18px + env(safe-area-inset-top,0px));z-index:20;
+  transform:translate(-50%,-160%);padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;
+  background:var(--ink);color:var(--bg);box-shadow:0 10px 30px rgba(0,0,0,.35);
+  transition:transform .35s cubic-bezier(.3,1.4,.5,1);
+}
+.toast.show{transform:translate(-50%,0)}
+
+/* One entrance moment */
+.hero h1,.hero .role,.hero .actions{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.hero .role{animation-delay:.12s}.hero .actions{animation-delay:.24s}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="hero" id="hero">
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="top">
+      <div class="mark">AS</div>
+      <div class="top-r">
+        <div class="status"><svg class="nfc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M8.5 8.5a5 5 0 0 1 0 7"/><path d="M12 6a8.5 8.5 0 0 1 0 12"/><path d="M15.5 3.5a12 12 0 0 1 0 17"/></svg><span id="tapText">Welcome</span></div>
+        <button class="round" id="themeBtn" type="button" aria-label="Switch light or dark mode">
+          <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+        </button>
+      </div>
+    </div>
+    <h1 id="name" aria-label="Aditya Sanap">Aditya Sanap</h1>
+    <p class="role" id="role"><b>Electrical Engineer</b></p>
+
+    <nav class="actions" aria-label="Contact">
+      <a class="btn wa primary" id="waBtn" target="_blank" rel="noopener">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.77 14.1c-.24.68-1.42 1.3-1.96 1.35-.5.05-1.13.07-1.82-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.17-4.94-4.37-.14-.19-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36h.55c.18 0 .42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.3-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.41.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.26.1 1.68.79 1.97.94.29.14.48.21.55.33.07.12.07.69-.17 1.37z"/></svg></span>
+        <div><small>Chat on</small><span class="t">WhatsApp</span></div>
+      </a>
+      <a class="btn ig" id="igBtn" target="_blank" rel="noopener">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/></svg></span>
+        <div><small>Follow on</small><span class="t">@adi_sanap_08</span></div>
+      </a>
+      <a class="btn call" id="callBtn">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.58.57.56 0 1 .44 1 1V20c0 .56-.44 1-1 1C10.6 21 3 13.4 3 4c0-.56.44-1 1-1h3.5c.56 0 1 .44 1 1 0 1.25.2 2.46.57 3.58.11.35.03.74-.25 1.02L6.6 10.8z"/></svg></span>
+        <div><small>Call</small><span class="t">+91 95037 62468</span></div>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <h2>What's on your mind?</h2>
+      <p class="lead">Pick a topic and WhatsApp opens with the message already typed.</p>
+      <div class="chips" id="chips"></div>
+    </div>
+  </section>
+
+  <section id="end">
+    <div class="wrap">
+      <h2>Keep in touch</h2>
+      <p class="lead">Tap the card to flip it, then tap a detail to copy it.</p>
+
+      <div class="card3d" id="card">
+        <div class="card-in">
+          <div class="face front">
+            <button class="flipbtn" type="button" data-flip aria-label="Flip the contact card"></button>
+            <svg class="trace" viewBox="0 0 200 120" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M200 14H152L132 34H92"/><path d="M200 56H162L142 76H112L96 92H58"/><path d="M200 100H172L156 116H122"/>
+              <circle cx="90" cy="34" r="3"/><circle cx="56" cy="92" r="3"/><circle cx="120" cy="116" r="3"/>
+            </svg>
+            <div class="c-top">
+              <span class="emv" aria-hidden="true"></span>
+              <svg class="nfc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M8.5 8.5a5 5 0 0 1 0 7"/><path d="M12 6a8.5 8.5 0 0 1 0 12"/><path d="M15.5 3.5a12 12 0 0 1 0 17"/></svg>
+            </div>
+            <div class="c-bot">
+              <div>
+                <div class="c-name">Aditya Sanap</div>
+                <div class="c-role"><svg class="bolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>Electrical Engineer</div>
+              </div>
+              <span class="c-hint">Tap to flip</span>
+            </div>
+          </div>
+          <div class="face back">
+            <span class="stripe" aria-hidden="true"></span>
+            <button class="row" type="button" id="rowPhone"><span><small>Phone</small><b></b></span>
+              <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg></button>
+            <button class="row" type="button" id="rowIg"><span><small>Instagram</small><b></b></span>
+              <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg></button>
+            <button class="flipback" type="button" data-flip>Flip back</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tools">
+        <button class="btn save" id="saveBtn" type="button">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M15 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4zM5 10V7H3v3H0v2h3v3h2v-3h3v-2z"/></svg></span>
+          <div><small>Add to phone</small><span class="t">Save contact</span></div>
+        </button>
+        <button class="btn" id="shareBtn" type="button">
+          <span class="ico" style="background:var(--bg);color:var(--ink);border:1px solid var(--line)"><svg viewBox="0 0 24 24"><path d="M18 16.1c-.8 0-1.5.3-2 .8l-7.1-4.2c.1-.3.1-.5.1-.7s0-.5-.1-.7L16 7.2c.5.5 1.2.8 2 .8a3 3 0 1 0-3-3c0 .2 0 .5.1.7L8 9.8A3 3 0 1 0 8 14.2l7.1 4.2c-.1.2-.1.4-.1.6a3 3 0 1 0 3-2.9z"/></svg></span>
+          <div><small>Pass it on</small><span class="t">Share this page</span></div>
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© <span id="year"></span> Aditya Sanap</div></footer>
+
+<div class="dock" id="dock" role="navigation" aria-label="Quick contact">
+  <a class="d-wa" id="dWa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2z"/></svg>WhatsApp</a>
+  <a class="d-call" id="dCall"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.58.57.56 0 1 .44 1 1V20c0 .56-.44 1-1 1C10.6 21 3 13.4 3 4c0-.56.44-1 1-1h3.5c.56 0 1 .44 1 1 0 1.25.2 2.46.57 3.58.11.35.03.74-.25 1.02L6.6 10.8z"/></svg>Call</a>
+  <a class="d-ig" id="dIg" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></a>
+</div>
+
+<aside class="desk" aria-label="Open on your phone">
+  <h2>Made for phones</h2>
+  <p>This page opens when someone taps an NFC tag. Computers don't have NFC, so scan this code with your phone camera to see it properly.</p>
+  <div class="qr" id="qr"></div>
+  <small id="qrUrl"></small>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+/* Link the NFC tags with ?src=nfc at the end so the page knows it was a tap */
+const viaNfc = new URLSearchParams(location.search).get("src") === "nfc";
+
+/* ====== EDIT THESE DETAILS ====== */
+const ME = {
+  name: "Aditya Sanap",
+  first: "Aditya",
+  role: "Electrical Engineer",
+  instagram: "adi_sanap_08",
+  whatsapp: "919503762468",
+  phoneDisplay: "+91 95037 62468",
+  phoneTel: "+919503762468",
+  lines: ["Always curious about circuits", "Easy to reach, quick to reply", "Tap, connect and say hi"],
+  topics: [
+    { label: "Electrical help",  msg: "Hi Aditya, I need some help with an electrical problem." },
+    { label: "Project idea",     msg: "Hi Aditya, I have a project idea I'd like to discuss." },
+    { label: "Let's collaborate",msg: "Hi Aditya, I'd love to collaborate with you." },
+    { label: "Just saying hi",   msg: "Hi Aditya! " + (viaNfc ? "I tapped your NFC tag" : "I found your page") + " 👋" }
+  ]
+};
+/* ================================ */
+
+const $ = id => document.getElementById(id);
+const wa = text => "https://wa.me/" + ME.whatsapp + "?text=" + encodeURIComponent(text);
+const igLink = "https://instagram.com/" + ME.instagram;
+const buzz = ms => { try { navigator.vibrate && navigator.vibrate(ms); } catch(e){} };
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* Links */
+$("waBtn").href = $("dWa").href = wa("Hi " + ME.first + "! " + (viaNfc ? "I tapped your NFC tag" : "I found your page") + " 👋");
+$("tapText").textContent = viaNfc ? "Tag tapped" : "Welcome";
+$("igBtn").href = $("dIg").href = igLink;
+$("callBtn").href = $("dCall").href = "tel:" + ME.phoneTel;
+$("year").textContent = new Date().getFullYear();
+
+/* Toast */
+let toastTimer;
+function toast(msg){
+  const t = $("toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), 2200);
+}
+
+/* Name letters react to touch / hover */
+(function(){
+  const n = $("name"); const txt = n.textContent; n.textContent = "";
+  [...txt].forEach(ch => {
+    const s = document.createElement("span");
+    s.textContent = ch === " " ? "\u00A0" : ch; s.setAttribute("aria-hidden","true");
+    s.addEventListener("pointerenter", () => { s.classList.add("hot"); setTimeout(() => s.classList.remove("hot"), 450); });
+    n.appendChild(s);
+  });
+})();
+
+/* Typing role line */
+(function(){
+  const el = $("role");
+  const base = document.createElement("b"); base.textContent = ME.role;
+  const sep = document.createTextNode(" · ");
+  const typed = document.createElement("span");
+  const caret = document.createElement("i"); caret.className = "caret";
+  el.textContent = ""; el.append(base);
+  if (reduce) { el.append(document.createTextNode(" — " + ME.lines[2])); return; }
+  el.append(sep, typed, caret);
+  let li = 0, ci = 0, del = false;
+  (function tick(){
+    const full = ME.lines[li];
+    typed.textContent = full.slice(0, ci);
+    let wait = del ? 28 : 55;
+    if (!del && ci === full.length) { del = true; wait = 1700; }
+    else if (del && ci === 0) { del = false; li = (li + 1) % ME.lines.length; wait = 350; }
+    else ci += del ? -1 : 1;
+    setTimeout(tick, wait);
+  })();
+})();
+
+/* Button ripple + haptic */
+document.querySelectorAll(".btn").forEach(b => {
+  b.addEventListener("pointerdown", e => {
+    const r = b.getBoundingClientRect(), s = document.createElement("span");
+    s.className = "ripple"; s.style.left = (e.clientX - r.left) + "px"; s.style.top = (e.clientY - r.top) + "px";
+    b.appendChild(s); setTimeout(() => s.remove(), 650); buzz(12);
+  });
+});
+
+/* WhatsApp topic chips */
+ME.topics.forEach(t => {
+  const a = document.createElement("a");
+  a.className = "chip"; a.textContent = t.label; a.href = wa(t.msg); a.target = "_blank"; a.rel = "noopener";
+  a.addEventListener("pointerdown", () => buzz(12));
+  $("chips").appendChild(a);
+});
+
+/* Gold burst for success moments */
+function burst(x, y){
+  if (reduce) return;
+  for (let i = 0; i < 12; i++) {
+    const p = document.createElement("i"), ang = (i / 12) * 6.283 + Math.random() * .4, d = 36 + Math.random() * 40;
+    p.className = "bit"; p.style.left = x + "px"; p.style.top = y + "px";
+    p.style.setProperty("--dx", Math.cos(ang) * d + "px"); p.style.setProperty("--dy", Math.sin(ang) * d + "px");
+    document.body.appendChild(p); setTimeout(() => p.remove(), 800);
+  }
+}
+function flash(btn, text){
+  const t = btn.querySelector(".t"), old = t.textContent;
+  t.textContent = text; btn.classList.add("ok");
+  setTimeout(() => { t.textContent = old; btn.classList.remove("ok"); }, 1800);
+}
+async function copyText(t){
+  try { await navigator.clipboard.writeText(t); return true; }
+  catch(e){
+    const x = document.createElement("textarea"); x.value = t; x.style.position = "fixed"; x.style.opacity = "0";
+    document.body.appendChild(x); x.select(); let ok = false;
+    try { ok = document.execCommand("copy"); } catch(_){}
+    x.remove(); return ok;
+  }
+}
+
+/* Flip contact card */
+document.querySelectorAll("[data-flip]").forEach(b => b.addEventListener("click", () => {
+  $("card").classList.toggle("flipped"); buzz(15);
+}));
+
+/* Card sheen follows the finger or cursor */
+(function(){
+  const c = $("card");
+  const move = e => { const r = c.getBoundingClientRect(); c.style.setProperty("--mx", ((e.clientX - r.left) / r.width * 100) + "%"); c.style.setProperty("--my", ((e.clientY - r.top) / r.height * 100) + "%"); };
+  c.addEventListener("pointermove", move); c.addEventListener("pointerdown", move);
+  c.addEventListener("pointerleave", () => { c.style.removeProperty("--mx"); c.style.removeProperty("--my"); });
+})();
+
+/* Tap a detail on the back to copy it */
+[["rowPhone", ME.phoneDisplay], ["rowIg", "@" + ME.instagram]].forEach(([id, val]) => {
+  const r = $(id), v = r.querySelector("b"); v.textContent = val;
+  r.addEventListener("click", async e => {
+    const ok = await copyText(val);
+    r.classList.add("done"); v.textContent = ok ? "Copied ✓" : "Press and hold to copy";
+    if (ok) { buzz([15, 40, 15]); burst(e.clientX, e.clientY); }
+    setTimeout(() => { r.classList.remove("done"); v.textContent = val; }, 1600);
+  });
+});
+
+/* Save contact (vCard) */
+$("saveBtn").addEventListener("click", e => {
+  const v = "BEGIN:VCARD\nVERSION:3.0\nFN:" + ME.name + "\nN:Sanap;Aditya;;;\nTITLE:" + ME.role +
+            "\nTEL;TYPE=CELL:" + ME.phoneTel + "\nURL:" + igLink + "\nEND:VCARD";
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([v], {type: "text/vcard"}));
+  a.download = "Aditya-Sanap.vcf";
+  document.body.appendChild(a); a.click(); a.remove();
+  flash($("saveBtn"), "Saved ✓"); burst(e.clientX, e.clientY);
+});
+
+/* Share page */
+$("shareBtn").addEventListener("click", async e => {
+  const data = { title: ME.name, text: ME.name + " — " + ME.role, url: location.href };
+  if (navigator.share) { try { await navigator.share(data); } catch(_){} }
+  else if (await copyText(location.href)) { flash($("shareBtn"), "Link copied ✓"); burst(e.clientX, e.clientY); }
+  else toast("Couldn't copy the link");
+});
+
+/* Theme toggle */
+const root = document.documentElement;
+function isLight(){
+  const t = root.getAttribute("data-theme");
+  return t ? t === "light" : matchMedia("(prefers-color-scheme: light)").matches;
+}
+try { const saved = localStorage.getItem("theme"); if (saved) root.setAttribute("data-theme", saved); } catch(e){}
+$("themeBtn").addEventListener("click", () => {
+  const next = isLight() ? "dark" : "light";
+  root.setAttribute("data-theme", next);
+  try { localStorage.setItem("theme", next); } catch(e){}
+  refreshColors(); buzz(10);
+});
+
+/* Dock hides at the bottom section so it never covers the buttons there */
+new IntersectionObserver(es => es.forEach(e => $("dock").classList.toggle("away", e.isIntersecting && e.intersectionRatio > .5)),
+  { threshold: [0, .5, 1] }).observe($("end"));
+
+/* QR code for desktop visitors */
+(function(){
+  if (!matchMedia("(min-width:1000px) and (hover:hover) and (pointer:fine)").matches) return;
+  const url = location.origin + location.pathname;
+  $("qrUrl").textContent = url;
+  if (window.QRCode && location.protocol.startsWith("http")) {
+    new QRCode($("qr"), { text: url, width: 180, height: 180, colorDark: "#0a0a0a", colorLight: "#ffffff" });
+  } else { $("qr").style.display = "none"; }
+})();
+
+/* ===== Live circuit background ===== */
+const cv = $("fx"), ctx = cv.getContext("2d"), hero = $("hero");
+let W = 0, H = 0, gap = 38, pts = [], cols = 0, rows = 0;
+let ptr = { x: -999, y: -999 }, pulses = [], rose = "#e3202f", soft = "#b3a487", running = false, last = 0;
+
+function refreshColors(){
+  const cs = getComputedStyle(root);
+  rose = cs.getPropertyValue("--rose").trim() || rose;
+  soft = cs.getPropertyValue("--ink-soft").trim() || soft;
+  if (!running) draw(performance.now());
+}
+function size(){
+  const r = hero.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2);
+  W = r.width; H = r.height; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0);
+  cols = Math.ceil(W / gap) + 1; rows = Math.ceil(H / gap) + 1;
+  pts = new Float32Array(cols * rows);
+  if (!running) draw(performance.now());
+}
+function spark(x, y){ pulses.push({ x, y, r: 0 }); if (pulses.length > 8) pulses.shift(); }
+
+function draw(now){
+  const dt = Math.min((now - last) / 1000, .05); last = now;
+  ctx.clearRect(0, 0, W, H);
+  for (const p of pulses) p.r += 320 * dt;
+  pulses = pulses.filter(p => p.r < Math.max(W, H) * 1.2);
+
+  for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
+    const x = i * gap, y = j * gap;
+    let e = Math.max(0, 1 - Math.hypot(x - ptr.x, y - ptr.y) / 130);
+    for (const p of pulses) { const k = (Math.hypot(x - p.x, y - p.y) - p.r) / 26; e = Math.max(e, Math.exp(-k * k)); }
+    pts[j * cols + i] = e;
+  }
+  ctx.lineWidth = 1;
+  for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
+    const e = pts[j * cols + i], x = i * gap, y = j * gap;
+    if (i < cols - 1) { const e2 = Math.max(e, pts[j * cols + i + 1]); ctx.globalAlpha = .07 + e2 * .6; ctx.strokeStyle = e2 > .05 ? rose : soft; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + gap, y); ctx.stroke(); }
+    if (j < rows - 1) { const e2 = Math.max(e, pts[(j + 1) * cols + i]); ctx.globalAlpha = .07 + e2 * .6; ctx.strokeStyle = e2 > .05 ? rose : soft; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y + gap); ctx.stroke(); }
+  }
+  for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
+    const e = pts[j * cols + i];
+    ctx.globalAlpha = .25 + e * .75; ctx.fillStyle = e > .05 ? rose : soft;
+    ctx.beginPath(); ctx.arc(i * gap, j * gap, 1.3 + e * 2.6, 0, 6.283); ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+  if (running) requestAnimationFrame(draw);
+}
+function start(){ if (reduce || running) return; running = true; last = performance.now(); requestAnimationFrame(draw); }
+function stop(){ running = false; }
+
+hero.addEventListener("pointermove", e => { const r = hero.getBoundingClientRect(); ptr.x = e.clientX - r.left; ptr.y = e.clientY - r.top; });
+hero.addEventListener("pointerleave", () => { ptr.x = ptr.y = -999; });
+hero.addEventListener("pointerdown", e => {
+  if (e.target.closest("a,button")) return;
+  const r = hero.getBoundingClientRect(); spark(e.clientX - r.left, e.clientY - r.top); buzz(15);
+});
+new IntersectionObserver(es => es[0].isIntersecting ? start() : stop()).observe(hero);
+new ResizeObserver(size).observe(hero);
+matchMedia("(prefers-color-scheme: light)").addEventListener("change", refreshColors);
+
+refreshColors(); size();
+if (!reduce) {
+  setTimeout(() => spark(W * .5, H * .45), 400);
+  setInterval(() => { if (running) spark(Math.random() * W, Math.random() * H); }, 1300);
+}
+</script>
+</body>
+</html>
